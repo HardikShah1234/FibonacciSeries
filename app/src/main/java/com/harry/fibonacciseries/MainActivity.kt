@@ -30,7 +30,6 @@ class MainActivity : AppCompatActivity() {
         mRecyclerView!!.adapter = recyclerViewAdapter
 
         lifecycleScope.launch(Dispatchers.Unconfined) {
-            withContext(Dispatchers.Default) {
                 mRecyclerView!!.addOnScrollListener(object : RecyclerView.OnScrollListener(){
                     override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                         super.onScrolled(recyclerView, dx, dy)
@@ -40,7 +39,6 @@ class MainActivity : AppCompatActivity() {
                         }
                     }
                 })
-            }
 
         }
 
