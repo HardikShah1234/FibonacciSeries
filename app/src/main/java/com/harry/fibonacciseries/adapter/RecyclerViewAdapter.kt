@@ -24,8 +24,14 @@ class RecyclerViewAdapter(private var count: Int) : RecyclerView.Adapter<Recycle
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         holder as MyViewHolder
         holder.cell_no.text = "Cell" +(position + 1)
-        holder.itemView.autoDisposeScope.launch{
-            holder.fibonacci_no.text = FibonacciCalculation.Fibonacci(position + 1).toString()
+        holder.itemView.autoDisposeScope.launch {
+            if(position == 0 || position == 1){
+                holder.fibonacci_no.text = position.toString()
+            }
+            else {
+                holder.fibonacci_no.text =
+                    FibonacciCalculation.fibTail(position, 0.toULong(), 1.toULong()).toString()
+            }
         }
     }
 

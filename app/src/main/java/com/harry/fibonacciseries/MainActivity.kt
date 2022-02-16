@@ -1,8 +1,8 @@
 package com.harry.fibonacciseries
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.harry.fibonacciseries.adapter.RecyclerViewAdapter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         val recyclerViewAdapter = RecyclerViewAdapter(recycler_view_items);
         mRecyclerView!!.adapter = recyclerViewAdapter
 
-        lifecycleScope.launch(Dispatchers.Unconfined) {
+        lifecycleScope.launch(Dispatchers.Default) {
                 mRecyclerView!!.addOnScrollListener(object : RecyclerView.OnScrollListener(){
                     override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                         super.onScrolled(recyclerView, dx, dy)
